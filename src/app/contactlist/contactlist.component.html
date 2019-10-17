@@ -1,0 +1,142 @@
+	<body>
+		<div id="login">
+		<div class="container">
+		<div id="login-row" class="row justify-content-center align-items-center">
+		<div id="login-column" class="col-lg-8 ">
+		<div id="login-box" style=" box-shadow: 5px 5px 5px grey">
+		<form  (submit)="onAddContact(postForm)" #postForm="ngForm"  validate>
+		<div class="card">
+		<div class="card-header " style="text-align: center">
+		Add Contact Page
+		</div>
+		<div class="card-body">
+
+		
+
+		<!-- image *ngIf="imageBinaryData"-->
+		<img class="image" [src]="imgURL" height="100">  
+		<input #file type="file"   #image="ngModel" name="image" ngModel class="form-control  profile-pic"  accept='image/*' (change)="preview(file.files)"/>
+		
+		<div class="row">
+		<!-- FirstName -->
+		<div class="form-group col-6">
+		<label>Firstname</label>
+		<input type="text" name="firstName" #firstName="ngModel" #firstNameCtrl="ngModel" ngModel required autocomplete="off"  class="form-control" required >
+		<span *ngIf="firstNameCtrl.touched&&firstNameCtrl.invalid">										
+		<span *ngIf="firstNameCtrl.errors.required">
+		<p style="color: red">*please enter firstname</p>
+		</span>   
+		</span> 												
+		</div>
+		<!-- LastName -->
+		<div class="form-group col-6">
+		<label>Lastname</label>
+		<input type="text" name="lastName" #lastName="ngModel" #lastNameCtrl="ngModel" ngModel required autocomplete="off" class="form-control" required  >
+		<span *ngIf="lastNameCtrl.touched&&lastNameCtrl.invalid">
+		<span *ngIf="lastNameCtrl.errors.required">
+		<p style="color: red">*please enter lastname</p>
+		</span>    												
+		</span>
+		</div>
+		</div>	
+		<!--Number-->
+		<div class="row">
+		<div class="form-group col-6">
+		<label>Number</label>
+		<input  type="tel" name="phoneNumber" #phoneNumber="ngModel" #phoneNumberCtrl="ngModel" (keypress)="keyPress($event)"   ngModel required autocomplete="off"  class="form-control"  minlength="10" maxlength="10"  required>
+		<span *ngIf="message=='That userphonenumber is taken. Try another.'" style="color: red">{{message}}</span>
+		<span *ngIf="phoneNumberCtrl.touched&&phoneNumberCtrl.invalid">
+		<span *ngIf="phoneNumberCtrl.errors.required">
+		<p style="color: red">*please provide Mobile number</p>
+		</span>
+		<span *ngIf="phoneNumberCtrl.errors.minlength">
+		<p style="color: red">*please provide min 10 char</p>
+		</span>
+		</span>
+		</div>																			
+		<!--Email  -->
+		<div class="form-group col-6">
+		<label>Email</label>
+		<input type="email" name="email" #email="ngModel" #emailCtrl="ngModel" ngModel required autocomplete="off" email  class="form-control"  required >
+		<span *ngIf="emailCtrl.touched&&emailCtrl.invalid">
+		<span *ngIf="emailCtrl.errors.required">
+		<p  style="color: red">*please provide email id</p>
+		</span>
+		<span *ngIf="emailCtrl.errors.email">
+		<p style="color: red">	*please provide valid email id</p>
+		</span>
+		</span>
+		</div>
+		</div>
+		<!-- Gender -->
+		<div class="custom-control custom-switch">
+		<input type="radio" class="custom-control-input" name="gender"  value="Male" ngModel [(ngModel)]="genderType" id="customSwitch1" #gender="ngModel" checked >
+		<label class="custom-control-label" for="customSwitch1" >Male</label>
+		</div>
+		<div class="custom-control custom-switch">
+		<input type="radio" class="custom-control-input" name="gender" value="Female" ngModel  [(ngModel)]="genderType" id="customSwitch2" #gender="ngModel" >
+		<label class="custom-control-label" for="customSwitch2" >Female</label>
+		</div>
+		<!-- Location -->
+
+
+
+		<div class="row">
+			<button type="button" class="btn col-3 btn-danger" (click)="AddLocation()">Add Location</button>
+			<span *ngIf="location" class="row col-9 ">
+				<!-- <label >Lat</label> -->
+				<input type="text" name="lat"   class="form-control col-4  loc-input" value="{{location.lat}}">
+				<!-- <label>Lng</label> -->
+				<input type="text" name="lng"   class="form-control col-4 loc-input" value="{{location.lng}}">
+			</span>
+		</div>
+
+		<!-- <div class="row">
+			<button type="button" class="btn col-3 btn-danger"  (click)="Custemerlocation()"> Custume Location</button>
+			<span  class="row  col-9">
+				<input type="text" name="lat1" class="form-control col-4  loc-input" #lat1="ngModel" ngModel >
+				<input type="text" name="lng1" class="form-control col-4 loc-input" #lng1="ngModel" ngModel>
+			</span>
+		</div> -->
+		
+		
+		
+<agm-map [latitude]="lat" [longitude]="lng">
+	<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+			
+		<!-- CheckBox -->
+		<div class="container"  >
+		<mat-checkbox  color="primary" name="checkMe" ngModel #checkMe="ngModel" required  >I agree to the terms</mat-checkbox>
+		</div>
+
+
+		
+	   <div class="card-footer">
+		<!-- <button type="submit" class="btn btn-primary"  [disabled]="!b" >Save</button> -->
+		<button type="submit" class="btn btn-primary"  [disabled]="postForm.invalid" >Save</button>
+		<!-- <button type="button" class="btn btn-secondary">Cancel</button> -->
+		</div>
+	  	</div>
+  		</div>	
+		</form>
+		</div>
+	    </div>
+		</div>
+	    </div> 
+		<!-- </body> -->
+
+
+
+
+
+
+	
+
+
+
+
+
+    
+     
+                           

@@ -1,0 +1,70 @@
+.card-footer{
+   text-align: center;
+   padding: 5px;
+
+}
+
+#login-column{
+   margin-top:4%;
+}
+
+.image{
+   position: relative;
+   left: 20%;
+}
+
+.profile-pic{
+   position: relative;
+   left: 43%;
+   width: 100px;
+   height: 32px;
+   padding: 0px;
+   margin: 0px;
+}
+
+/* .profile-pic-border{
+   position: relative;
+   left: 43%;
+   border-radius: 50px;
+   width: 100px;
+   height: 100px;
+   margin-bottom: 10px;
+   border: 2px solid black;
+} */
+
+
+.image{
+   position: relative !important;
+   border-radius: 50px;
+   width: 100px;
+   height: 100px;
+   margin-bottom: 10px;
+   left: 43%;
+}
+
+.input-field{
+   margin-left: 15px;
+}
+
+
+
+
+.loc-input{
+   width: 300px;
+   margin-left: 35px;
+}
+
+.btn-danger{
+   margin-top: 10px;
+   margin-bottom:20px;
+   margin-left: 10px;
+}
+.row{
+   margin-top: 10px;
+}
+
+agm-map {
+   
+   height:200px;
+   
+}
